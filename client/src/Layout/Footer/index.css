@@ -1,0 +1,174 @@
+/*Set default no border and outline for input and button*/
+input {
+    outline:none;
+    border:none;
+}
+button {
+    border:none;
+    background: white;
+}
+
+
+/*Style for locker*/
+.lockerBtn, .lockerForm, .errorField {
+    position: fixed;
+    bottom: 0;
+    border:none;
+    outline:none;
+    text-align: center;
+    background: none;
+    z-index: 9;
+    
+}
+.lockerBtn {
+    left:2px;
+    width:40px;
+    height:40px;
+}
+
+.lockerForm, .errorField{
+    /* background-color: white; */
+    /* width: 200px; */
+    
+    height: 38px;
+    left: 40px;
+    bottom:8px; 
+    background-color: white;
+    box-shadow : 0px 0px 2px 0.1px blue;
+    border : 1px solid blue;
+}
+
+.errorField{
+    bottom:50px; 
+    /* background:none; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px; 
+    background: black;
+    color: white;
+    box-shadow : none;
+    border : none;
+    left: 28px;
+}
+
+
+
+.lockerInput::placeholder {
+    font-size: 1em;
+}
+.lockerInput {
+    width: 170px; 
+    color: black; 
+    background-color: white;
+
+}
+.submitBtn {
+    background-color: white;
+    color:black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:30px;
+    height:30px;
+    border-radius: 50%;
+}
+.submitBtn:hover{
+    /* background-color: #e9ecef */
+    background-color: lightgrey;
+}
+
+/* Style for adding */
+
+.addingBar, .lockerBar {
+    background: white;
+    height: 38px;
+    width: 370px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+}
+
+.lockerBar {
+    background: white;
+    height: 38px;
+    width: 370px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lockerBar:hover{
+    /* background-color: #e9ecef */
+    opacity:0.7
+    /* background-color: lightgrey; */
+}
+.item {
+    font-weight:500
+}
+.item:hover{
+color: #0d6efd;
+font-weight:640
+/* color: red */
+}
+
+/* Adding Box */
+.addingBox, .lockerBox {
+    border-radius: 8px 8px 0 0;
+    box-shadow: 0px 2px 15px 5px lightgrey;
+    width: 250px;
+    background-color: white;
+    position: fixed;
+    bottom: 0px;
+    right: 20px;
+    width: 450px;
+    height: 70vh;
+    display:none;
+}
+.chevronBtn {
+    height: 32px;
+    width: 32px;
+    /* background: lightblue; */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chevronBtn:hover{
+    background: lightgrey;
+}
+.itemList {
+    list-style-type: none;
+}
+.addItems::placeholder {
+    font-size: medium;
+}
+
+
+/*Style for Noting */
+/*Style icons*/
+.circleChecked{
+    /* margin-top:-2px; */
+    background:#0d6efd;
+    border-radius:50%;
+    border:none;
+    outline:none
+}
+
+
+.trash {
+    float: right;
+    margin-right: 2px;
+    margin-top: -2px;
+    }
+.check {
+    margin-right: 6px;
+    margin-top: -6px;
+    }
+
+.hr{
+    height: 0.5px
+}
