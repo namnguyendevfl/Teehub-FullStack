@@ -1,0 +1,115 @@
+/* Right main */
+.rightMain {
+    position: fixed;
+    right: 0px;
+}
+.options {
+    position: relative;
+}
+.optionBtn {
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    /* position: relative; */
+}
+
+.plusBtn, .dltBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    box-shadow: none !important
+}
+
+.trashBtn {
+    border-radius: 10px !important;
+
+}
+/* .menuBtn {
+    width:85%
+} */
+.optionBtn:hover, .list-group-item:hover, .plusBtn:hover, .dltBtn:hover {
+    background-color: lightgrey;
+    /* z-index: 10; */
+    /* opacity:0.7 */
+}
+
+.optionBox {
+    width : 300px;
+    /* height: 50vh; */
+    background-color: lightgray;
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    z-index: 10 !important;
+}
+
+.list-group-item {
+    outline: none;
+    border: none;
+}
+/* .dlt:hover  */
+/* remove input hover from .list-group-item */
+.createInput:hover, .dlt:hover, .ntbkInRightMenu:hover {
+    background-color: white !important;
+}
+
+.number {
+    width:25px;
+    /* padding-left: 5px; */
+}
+
+.number::placeholder{
+    color: #90979c;
+    padding-left: 3px;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+  }
+/* Style the dropdown */
+.dropdown {
+    background-color: white !important;
+    color: black !important;
+    outline: none;
+    border:none;
+    box-shadow: none !important
+}
+
+.dropdown:hover {
+    background-color: lightgray !important;
+    color: black;
+}
+
+.dropdown:focus {
+    outline: none !important;
+    border: none !important;
+    background-color: lightgray !important;
+    box-shadow: none;
+}
+
+
+/* Middle Main */
+.topicInput {
+    border:none;
+    outline: none;
+}
+
+.displayText {
+    white-space: pre-line;
+}
+
+.topicDisplay:target{ padding-top: 70px;margin-top: -70px}
+
+
+.middleMain {
+    position:sticky;
+    
+}
+
+/* Left main */
+.leftMain {
+    position: fixed;
+    left:0;
+}

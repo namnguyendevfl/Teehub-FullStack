@@ -3,8 +3,12 @@ import { Blue, Red, Background } from "../../../utils/Color"
 
 // export default function ProgressBar({progress, isTimerRunning}) {
 export default function ProgressBar({session, isTimerRunning}) {
+
+  let setTimer = window.localStorage.getItem('setTimer')
+  setTimer = JSON.parse(setTimer)
+  
     let background
-    session
+    session && setTimer
       ? isTimerRunning
         ? background = Blue()
         : background = Red()

@@ -75,7 +75,7 @@ export default function Locker (prop) {
             {   keyBox.style.boxShadow = "0px 0px 2px 0.1px blue"
                 keyBox.style.border = "1px solid blue"}
 
-    console.log(boxBorder)
+    // console.log(boxBorder)
     window.addEventListener("click",({target}) => {
         const box = document.querySelector(".lockerForm");
         if (box !== null)

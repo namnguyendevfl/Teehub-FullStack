@@ -16,7 +16,9 @@ export default function Header (prop) {
         setBreakInterval,
         breakInterval,  
     } = prop
-
+    let setTimer = window.localStorage.getItem('setTimer')
+    setTimer = JSON.parse(setTimer)
+    
     return <>
         <div className ="row w-100 p-1 d-flex align-items-center justify-content-start flex-nowrap headerBar" >
             <div className =" col leftBar ms-3 me-md-3 me-2 d-flex flex-nowrap justify-content-start m-0 p-0">
@@ -38,12 +40,9 @@ export default function Header (prop) {
                 <RightHeader />
             </div>
         </div>
-        {/* {session && */}
-             <div> 
-               <ProgressBar  isTimerRunning = {isTimerRunning} session = {session}  
-               />
+             <div>
+                <ProgressBar  isTimerRunning = {isTimerRunning} session = {session}  
+                    />
              </div>
-            {/* // : <div style={{ background:"blue", height:"13px" }}> </div> */}
-        {/* } */}
     </>
 }

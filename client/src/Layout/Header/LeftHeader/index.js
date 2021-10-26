@@ -14,8 +14,33 @@ export default function LeftHeader (prop) {
         setBreakInterval,
         breakInterval,  
     } = prop
+    let setTimer = window.localStorage.getItem('setTimer')
+    setTimer = JSON.parse(setTimer)
+    
     return <>
-            <Switch>
+            {setTimer
+            ? <Timing
+                isTimerRunning = {isTimerRunning} 
+                setIsTimerRunning = {setIsTimerRunning}
+                focusInterval = {focusInterval} 
+                setFocusInterval={setFocusInterval}
+                breakInterval = {breakInterval} 
+                setBreakInterval={setBreakInterval}
+                session = {session} 
+                setSession = {setSession}  
+            />
+            :  <NonTiming 
+                isTimerRunning = {isTimerRunning} 
+                setIsTimerRunning = {setIsTimerRunning}
+                focusInterval = {focusInterval} 
+                setFocusInterval={setFocusInterval}
+                breakInterval = {breakInterval} 
+                setBreakInterval={setBreakInterval}
+                session = {session} 
+                setSession = {setSession}  
+            />
+            }
+            {/* <Switch>
                 <Route exact path = "/">
                     <NonTiming 
                              isTimerRunning = {isTimerRunning} 
@@ -40,6 +65,6 @@ export default function LeftHeader (prop) {
                              setSession = {setSession}  
                     />
                 </Route>
-            </Switch>
+            </Switch> */}
     </>
 }

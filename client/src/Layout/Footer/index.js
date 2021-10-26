@@ -21,7 +21,7 @@ export default function Footer (prop) {
         if (display)
                 lockerBox.style.display = "block"
         else    lockerBox.style.display = "none"
-    console.log(display)
+    // console.log(display)
     // (display)
     // ? {
         

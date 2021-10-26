@@ -44,11 +44,12 @@ window.addEventListener("click",({target}) => {
 })  
 
 
-const timerToolTip = document.querySelector("#timerToolTip")
-if(timerToolTip)
-toolTipDisplay
-?timerToolTip.style.display = "flex"
-:timerToolTip.style.display = "none"
+//Prevent it from displaying when start running the website
+// const timerToolTip = document.querySelector("#timerToolTip")
+// if(timerToolTip)
+// toolTipDisplay 
+// ?timerToolTip.style.display = "flex"
+// :timerToolTip.style.display = "none"
 
 
 return <ul className = "nav ">
@@ -164,14 +165,18 @@ return <ul className = "nav ">
            </button>
             <div > </div>
         </div>
-            <TimerToolTip
+            {
+            toolTipDisplay 
+            ? <TimerToolTip
                 setIsTimerRunning = {setIsTimerRunning}
                 focusInterval = {focusInterval} 
                 breakInterval = {breakInterval} 
                 setFocusInterval={setFocusInterval}
                 setBreakInterval={setBreakInterval}
                 setSession = {setSession}      
-            />     
+            />
+            : null
+            }     
     </li>
 </ul>
 }

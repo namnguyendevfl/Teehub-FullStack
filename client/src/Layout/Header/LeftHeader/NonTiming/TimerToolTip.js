@@ -26,8 +26,9 @@ export default function TimerToolTip (props) {
       window.localStorage.setItem('storedBreakInterval',JSON.stringify(breakInterval))
         //Switch the "pause" state variable when the playPause button is clicked 
         setIsTimerRunning((prevState) => {
-          window.localStorage.setItem('Url',JSON.stringify("/Timer"))
-          history.push("/Timer")
+          // window.localStorage.setItem('Url',JSON.stringify("/Timer"))
+          // history.push("/Timer")
+          window.localStorage.setItem('setTimer',JSON.stringify(true))
           const nextState = !prevState;
           if (nextState) {            
             setSession((prevStateSession) => {

@@ -91,8 +91,9 @@ export default function Timing (props) {
         localStorage.removeItem('storedSession')
         localStorage.removeItem('storedBreakInterval')
         localStorage.removeItem('storedFocusInterval')
-        window.localStorage.setItem('Url',JSON.stringify("/"))
-        history.push("/")  
+        // window.localStorage.setItem('Url',JSON.stringify("/"))
+        // history.push("/");
+        window.localStorage.setItem('setTimer',JSON.stringify(false))  
     }
     
     return <ul className = "nav">

@@ -13,11 +13,13 @@ export default function Layout () {
     const [breakInterval, setBreakInterval] = useState("")
     // Run the past history from localStorage
     const history = useHistory()
+    let setTimer = window.localStorage.getItem('setTimer')
+    setTimer = JSON.parse(setTimer)
     useEffect (() => {
-        let storedUrl = window.localStorage.getItem('Url')
-            storedUrl = JSON.parse(storedUrl)
-        if(storedUrl)
-        history.push(storedUrl) 
+        // let storedUrl = window.localStorage.getItem('Url')
+        //     storedUrl = JSON.parse(storedUrl)
+        // if(storedUrl)
+        // history.push(storedUrl) 
         let storedSession = window.localStorage.getItem('storedSession')
             storedSession = JSON.parse(storedSession)
         let storedBreakInterval = window.localStorage.getItem('storedBreakInterval')
@@ -28,9 +30,10 @@ export default function Layout () {
         //fixing a pomodoro bug by setting interval by localstorage values over here
         setBreakInterval(() => storedBreakInterval)
         setFocusInterval (() => storedFocusInterval)
-        console.log("storedBreakInterval", storedBreakInterval)
-        console.log("storedFocuskInterval", storedFocusInterval)
-        if (storedUrl="/Timer" && session === null) {
+        // console.log("storedBreakInterval", storedBreakInterval)
+        // console.log("storedFocuskInterval", storedFocusInterval)
+        // if (storedUrl="/Timer" && session === null) {
+        if (setTimer && session === null) {
             setSession (() => storedSession)
             // setBreakInterval(() => storedBreakInterval)
             // setFocusInterval (() => storedFocusInterval)
@@ -51,9 +54,9 @@ export default function Layout () {
     const   [password, setPassword] = useState ("hello")
     useEffect (() => setLock(() => lock),[lock])
     // console.log(lock)
-    console.log(session)
-    console.log(focusInterval)
-    console.log(breakInterval)
+    // console.log(session)
+    // console.log(focusInterval)
+    // console.log(breakInterval)
     // console.log("storedBreakInterval", storedBreakInterval)
     // console.log("storedFocuskInterval", storedFocusInterval)
     // Second part: handleLocker
@@ -71,10 +74,13 @@ export default function Layout () {
                         setSession = {setSession}     
             />
         </header>
-
-        <main className = "vh-100">
-            <MainLayout />
-        </main>
+        <Switch >
+            <Route path = "/" >
+                <main className = "vh-100">
+                    <MainLayout />
+                </main>
+            </Route>
+        </Switch>
         <footer>
             <Footer lock = {lock}
                     setLock = {setLock}
