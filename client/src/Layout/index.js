@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import { Switch, Route,useHistory } from "react-router-dom";
+import { useHistory, Switch, Route } from "react-router-dom";
 import Footer from "./Footer"
 import Header from "./Header";
-import MainLayout from "./Main";
+
 import "./index.css"
+import MainLayout from "./Main/layout";
 
 export default function Layout () {
     //First part: Running Pomodoro
@@ -75,8 +76,8 @@ export default function Layout () {
             />
         </header>
         <Switch >
-            <Route path = "/" >
-                <main className = "vh-100">
+            <Route path = "/">
+                <main className = "vh-100 position-relative">
                     <MainLayout />
                 </main>
             </Route>

@@ -1,7 +1,13 @@
+/* main */
+main {
+    top: 80px;
+}
+
 /* Right main */
 .rightMain {
     position: fixed;
     right: 0px;
+    top: 80px;
 }
 .options {
     position: relative;
@@ -37,22 +43,59 @@
 }
 
 .optionBox {
-    width : 300px;
-    /* height: 50vh; */
-    background-color: lightgray;
+    width : 450px;
+    height: 300px;
+    /* background-color: lightgray; */
     position: absolute;
     top: 45px;
     right: 10px;
     z-index: 10 !important;
+    box-shadow: 0px 2px 15px 5px lightgrey;
+    border-radius: 8px;
+    /* border: 1px solid blue; */
 }
 
+.boxList {
+    height: 180px;
+    overflow-x: hidden ;
+    overflow-y: auto;
+    
+}
+
+
+.save {
+    background: #0d6efd;
+    color:white !important;  
+    border-radius: 8px !important;
+    z-index: 12; 
+}
+
+.save:hover {
+    opacity: 0.9;
+    background: #0d6efd !important;
+}
 .list-group-item {
     outline: none;
     border: none;
 }
+
+
+.addList {
+    width: 450px;
+
+}
+.orderList {
+    list-style-type: none;
+    width: 32px;
+    height: 50px !important;
+    overflow: auto;
+    text-align: center;
+    z-index: 11;
+
+}
 /* .dlt:hover  */
 /* remove input hover from .list-group-item */
-.createInput:hover, .dlt:hover, .ntbkInRightMenu:hover {
+.createInput:hover, .dlt:hover, .ntbkInRightMenu:hover, .optionBtnBar:hover, .addList:hover {
     background-color: white !important;
 }
 
@@ -104,7 +147,9 @@
 
 
 .middleMain {
-    position:sticky;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 80px !important;
     
 }
 
@@ -112,4 +157,10 @@
 .leftMain {
     position: fixed;
     left:0;
+    top: 80px;
+}
+
+/* //Remove link effect */
+.link {
+    text-decoration: none;
 }

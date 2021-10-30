@@ -2,7 +2,9 @@ header {
     height: 60px;
     background-color: white;
     padding-top: 2px;
-    position: sticky;
+    /* position: sticky; */
+    position: fixed;
+    width: 100%;
     top: 0px;
     z-index: 10;
 }

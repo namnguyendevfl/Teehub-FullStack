@@ -12,7 +12,8 @@ export default function ProgressBar({session, isTimerRunning}) {
       ? isTimerRunning
         ? background = Blue()
         : background = Red()
-      : background = Background()
+      // : background = Background()
+      : background = "white"
     const progress = session?.timeElapsedPercent
     return  <>
       <div>

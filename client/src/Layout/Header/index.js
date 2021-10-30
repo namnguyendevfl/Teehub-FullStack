@@ -19,6 +19,7 @@ export default function Header (prop) {
     let setTimer = window.localStorage.getItem('setTimer')
     setTimer = JSON.parse(setTimer)
     
+    // console.log(session)
     return <>
         <div className ="row w-100 p-1 d-flex align-items-center justify-content-start flex-nowrap headerBar" >
             <div className =" col leftBar ms-3 me-md-3 me-2 d-flex flex-nowrap justify-content-start m-0 p-0">
@@ -40,9 +41,12 @@ export default function Header (prop) {
                 <RightHeader />
             </div>
         </div>
-             <div>
-                <ProgressBar  isTimerRunning = {isTimerRunning} session = {session}  
-                    />
-             </div>
+        {/* {session &&  */}
+                    <div>
+                    <ProgressBar  isTimerRunning = {isTimerRunning} session = {session}  
+                             />
+                </div>
+            {/* } */}
+
     </>
 }

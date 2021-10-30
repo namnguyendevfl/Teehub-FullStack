@@ -1,9 +1,13 @@
 import { Trash } from "../Icons/Main"
+import { useHistory } from "react-router";
+import React, { useState } from "react";
 
 
-
-export const ListToDlt = (options, indicatorToStore) => {
-    return options.map((option,idx) => 
+export const ListToDlt = (options, indicatorToStore, optionDlt, setOptionDlt) => {
+    const history = useHistory();
+    // const [ optionDlt, setOptionDlt ] = useState()
+    const newOptions = (!optionDlt) ? options : options.filter((option, idx) => option.id !== optionDlt.id)
+    return newOptions.map((option,idx) => 
         <li className = "dlt me-0 py-1 pe-2 list-group-item d-flex align-items-center justify-content-between">
         <span>{option.title} </span>
         <button 
@@ -11,7 +15,9 @@ export const ListToDlt = (options, indicatorToStore) => {
                 onClick = {(e) => {
                     const newOptions = options.filter((selectedOption, idx) => selectedOption.id !== option.id) 
                     // window.localStorage.setItem('notebooks', JSON.stringify(newOptions))
-                    window.localStorage.setItem(`${indicatorToStore}`, JSON.stringify(newOptions))
+                    // history.push("/notebooks")
+                    // window.localStorage.setItem(`${indicatorToStore}`, JSON.stringify(newOptions));
+                    setOptionDlt(() => option)
                 }}
                 > 
             <Trash />  
