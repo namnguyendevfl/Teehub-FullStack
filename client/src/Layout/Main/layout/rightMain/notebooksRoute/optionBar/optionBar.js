@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Add from "./Add";
 import BreadCrum from "./breadCrum";
 import Dlt from "./Delete";
+import Edit from "./Edit";
 
 export default function OptionBar(props) {
     const {
@@ -52,6 +53,22 @@ export default function OptionBar(props) {
                     dropdown = {dropdown}
                     setDropdown = { setDropdown }     
                     />
+            
+            case "edit":
+                return <Edit option = {option} 
+                    ntBkSelected = {ntBkSelected}
+                    setNtBkSelected = {setNtBkSelected}
+                    chapSelected = {chapSelected}
+                    setChapSelected = {setChapSelected}
+                    displayLeftMain = {displayLeftMain}
+                    setDisplayLeftMain = {setDisplayLeftMain}
+                    displayRightMain = {displayRightMain}
+                    setDisplayRightMain = {setDisplayRightMain} 
+                    optionBarUrl = {optionBarUrl}
+                    setOptionBarUrl = {setOptionBarUrl} 
+                    dropdown = {dropdown}
+                    setDropdown = { setDropdown }     
+                    />                 
         }
     }
     return (
@@ -65,12 +82,13 @@ export default function OptionBar(props) {
             />
             {
                 option && dropdown &&
+                /* option box has to have bg-white */
                 <div className = "optionBox bg-white container-fluid m-0 p-0">
                     {displayOption(option)}
                 </div>
             }
         </div>
-        {/* <hr className = "m-0 pb-0 pt-1" /> */}
+        
         </>
     )
 }

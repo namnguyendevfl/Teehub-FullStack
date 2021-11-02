@@ -1,5 +1,7 @@
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
+import DnD from "../../../../../utils/notebook/DnD";
+import DnD2 from "../../../../../utils/notebook/DnD2";
 import ChapterList from "../../../notebooks/middleMain/chapters/ChapterListMiddleMain";
 import NtBkList from "../../../notebooks/middleMain/notebooks/NtBkListMiddleMain";
 import TopicList from "../../../notebooks/middleMain/topics/TopicList";
@@ -32,6 +34,8 @@ export default function NoteBookRoute(props) {
                     displayRightMain = {displayRightMain}
                     setDisplayRightMain = {setDisplayRightMain}         
                     />
+                    <DnD />
+                    {/* <DnD2 /> */}
             </Route>
 
             <Route exact path = {`${url}/:bookId`}>

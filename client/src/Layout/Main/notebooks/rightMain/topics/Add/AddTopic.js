@@ -21,6 +21,7 @@ export default function AddTopic(props) {
     } = props
 
     const [ displayAddOption, setDisplayAddOption ] = useState(false);
+    const [ displayContent, setDisplayContent ] = useState(false)
     const initTopic = {
         id: "",
         title: "",
@@ -49,7 +50,9 @@ export default function AddTopic(props) {
         setDisplayAddOption = {setDisplayAddOption}
         newTopic = {newTopic}
         setNewTopic = {setNewTopic} 
-        initTopic = {initTopic}
+        initTopic = { initTopic }
+        displayContent = { displayContent }
+        setDisplayContent = { setDisplayContent }
 />
         : <AddLayout 
         option = {option} 
@@ -70,6 +73,8 @@ export default function AddTopic(props) {
         newTopic = {newTopic}
         setNewTopic = {setNewTopic}   
         initTopic = {initTopic}
+        displayContent = { displayContent }
+        setDisplayContent = { setDisplayContent }
 />
         }
         </>

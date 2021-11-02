@@ -1,25 +1,64 @@
+/* Notebooks */
+.notebook {
+    position: fixed !important;
+}
+
 /* main */
 main {
     top: 80px;
 }
 
 /* Right main */
+
+
 .rightMain {
     position: fixed;
     right: 0px;
     top: 80px;
 }
+
+/* Options */
 .options {
     position: relative;
 }
-.optionBtn {
+
+/* Option Bar */
+.optionBar {
+    background: none ;
+}
+.ntbkBtn {
     border: none;
     outline: none;
-    background-color: white;
+    background: none !important;
     border-radius: 50%;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
+    justify-content: center;
     /* position: relative; */
+}
+
+.ntbkBtn:hover {
+    background: lightgray !important;
+    border-radius: 50%;
+} 
+.ntbkDropdown:hover {
+    background: #636a70 !important;
+    border-radius: 8px;
+
+}
+.ntbkBar:hover {
+    background: none !important;
+}
+
+.dropdownListBox {
+    position: absolute;
+    border-radius: 8px;
+    z-index: 15;
+    background-color: black;
+    left: 26px;
+    right: 12px;
 }
 
 .plusBtn, .dltBtn {
@@ -33,10 +72,9 @@ main {
     border-radius: 10px !important;
 
 }
-/* .menuBtn {
-    width:85%
-} */
-.optionBtn:hover, .list-group-item:hover, .plusBtn:hover, .dltBtn:hover {
+
+
+.plusBtn:hover, .dltBtn:hover {
     background-color: lightgrey;
     /* z-index: 10; */
     /* opacity:0.7 */
@@ -50,10 +88,19 @@ main {
     top: 45px;
     right: 10px;
     z-index: 10 !important;
+    opacity: 1 !important;
     box-shadow: 0px 2px 15px 5px lightgrey;
     border-radius: 8px;
     /* border: 1px solid blue; */
+    /* backdrop-filter: opacity(0.5); */
 }
+
+/* .optionBox::before {
+   
+    background: inherit;
+    filter: blur(10px);
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+} */
 
 .boxList {
     height: 180px;
@@ -77,6 +124,7 @@ main {
 .list-group-item {
     outline: none;
     border: none;
+
 }
 
 
@@ -95,7 +143,7 @@ main {
 }
 /* .dlt:hover  */
 /* remove input hover from .list-group-item */
-.createInput:hover, .dlt:hover, .ntbkInRightMenu:hover, .optionBtnBar:hover, .addList:hover {
+.createInput:hover, .dlt:hover, .ntbkInRightMenu:hover, .addList:hover {
     background-color: white !important;
 }
 
@@ -113,7 +161,8 @@ main {
   }
 /* Style the dropdown */
 .dropdown {
-    background-color: white !important;
+    /* background-color: white !important; */
+    background-color: none !important;
     color: black !important;
     outline: none;
     border:none;
@@ -121,14 +170,16 @@ main {
 }
 
 .dropdown:hover {
-    background-color: lightgray !important;
+    /* background-color: lightgray !important; */
+    background-color: none !important;
     color: black;
 }
 
 .dropdown:focus {
     outline: none !important;
     border: none !important;
-    background-color: lightgray !important;
+    /* background-color: lightgray !important; */
+    background-color: none !important;
     box-shadow: none;
 }
 
@@ -163,4 +214,16 @@ main {
 /* //Remove link effect */
 .link {
     text-decoration: none;
+}
+/* 
+Notebook tooltip */
+
+.notebookTooltip {
+    /* border: 1px solid blue; */
+    right: 25px;
+    top: 45px;
+    width: 300px;
+    z-index: 15 !important;
+    box-shadow: 0px 2px 15px 5px lightgrey;
+
 }

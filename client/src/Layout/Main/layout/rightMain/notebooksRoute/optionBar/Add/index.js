@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouteMatch } from "react-router";
 import AddChapter from "../../../../../notebooks/rightMain/chapters/Add/AddChapter";
-import AddNtBk from "../../../../../notebooks/rightMain/notebooks/Add/AddNtBk";
+import AddNtBkLayout from "../../../../../notebooks/rightMain/notebooks/Add/AddNtBkLayout";
 import AddTopic from "../../../../../notebooks/rightMain/topics/Add/AddTopic";
 
 export default function Add(props){
@@ -24,7 +24,7 @@ export default function Add(props){
     if (!ntBkSelected) {
         return (
             <>
-                <AddNtBk
+                <AddNtBkLayout
                     option = {option} 
                     ntBkSelected = {ntBkSelected}
                     setNtBkSelected = {setNtBkSelected}

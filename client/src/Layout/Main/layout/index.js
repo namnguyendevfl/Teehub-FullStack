@@ -26,6 +26,7 @@ export default function MainLayout() {
                     </div>
                 </>
             }
+
             <div className = "col middleMain">
                 <MiddleMainLayout 
                         ntBkSelected = {ntBkSelected}
@@ -41,7 +42,7 @@ export default function MainLayout() {
 
             {displayRightMain &&
             <>
-                <div className = "col-4" > </div>
+                
                 <div className = "col-4 rightMain">              
                 <RightMainLayout 
                                 ntBkSelected = {ntBkSelected}
@@ -50,6 +51,7 @@ export default function MainLayout() {
                                 setChapSelected = {setChapSelected}
                 />
                 </div >
+                <div className = "col-4" > </div>
             </>
             }
         </Route>

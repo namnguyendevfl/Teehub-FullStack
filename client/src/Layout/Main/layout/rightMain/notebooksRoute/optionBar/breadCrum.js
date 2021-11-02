@@ -9,18 +9,18 @@ export default function BreadCrum({option, setOption, dropdown, setDropdown}) {
     }
     return (
         <>
-        <div className = "optionBtnBar list-group-item pb-0 pt-1 d-flex align-items-center justify-content-center">
-            <div>
-                <button className = "p-2 optionBtn"
+        <div className = "optionBar d-flex align-items-center justify-content-center">
+            <div className = "ms-1 ntbkBtn">
+                <button className = "p-0 ntbkBtn"
                         id = "search"
                         onClick = {handleClick}
                 > 
-            <Search />
+                <Search />
             </button>
             </div>
         
-        <div className = "ps-1">
-                <button className = "p-0 plusBtn d-flex align-items-center justify-content-center"
+        <div className = "ms-1 ntbkBtn">
+                <button className = "p-0 ntbkBtn"
                     id = "add"
                     onClick = {handleClick}                 
             > 
@@ -28,8 +28,8 @@ export default function BreadCrum({option, setOption, dropdown, setDropdown}) {
             </button>
         </div>
 
-        <div className = "ps-1">
-                <button className = "p-0 plusBtn d-flex align-items-center justify-content-center"
+        <div className = "ms-1 ntbkBtn">
+                <button className = "p-0 ntbkBtn"
                     id= "trash"
                     onClick = {handleClick}
             > 
@@ -37,8 +37,8 @@ export default function BreadCrum({option, setOption, dropdown, setDropdown}) {
             </button>
         </div>
 
-        <div className = "ps-1">
-                <button className = "p-0 plusBtn d-flex align-items-center justify-content-center"
+        <div className = "ms-1 ntbkBtn">
+                <button className = "p-0 ntbkBtn"
                     id = "edit"
                     onClick = {handleClick}
             > 
@@ -46,8 +46,8 @@ export default function BreadCrum({option, setOption, dropdown, setDropdown}) {
             </button>
         </div>
 
-        <div className = "ps-1">
-                <button className = "p-2 optionBtn"
+        <div className = "ms-1 ntbkBtn">
+                <button className = "p-0 ntbkBtn"
                     id = "more"
                     onClick = {handleClick}
             > 

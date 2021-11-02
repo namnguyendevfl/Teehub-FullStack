@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ListToDlt } from "../../../../../utils/notebook/MkChg";
+import { ListToDlt, Notebooks } from "../../../../../utils/notebook/MkChg";
 import { Escape } from "../../../../../utils/Icons/Main"
 import { useHistory } from "react-router-dom";
 export default function DltNtBk(props){
@@ -18,12 +18,10 @@ export default function DltNtBk(props){
         dropdown, 
         setDropdown 
     } = props
-    const [ ntBkDlted, setNtBkDlted ] = useState () 
-
-    let notebooks = window.localStorage.getItem('notebooks');
-    notebooks = JSON.parse(notebooks);
-    notebooks = (notebooks) ? notebooks : []   
-    const newNoteBooks = (!ntBkDlted) ? notebooks : notebooks.filter((notebook, idx) => notebook.id !== ntBkDlted.id)   
+    const [ ntBksDlted, setNtBksDlted ] = useState ([]) 
+    const notebooks = Notebooks.getList();
+    const ntBksDltedIds = ntBksDlted.map((ntBkDlt, idx) => ntBkDlt.id)
+    const newNoteBooks = (!ntBksDlted) ? notebooks : notebooks.filter((notebook, idx) => !ntBksDltedIds.includes(notebook.id))
     const history = useHistory();
 
     return (
@@ -41,7 +39,7 @@ export default function DltNtBk(props){
         </div>
         <hr className =" m-0 p-0"/>
         <div className = "boxList">
-        {ListToDlt(notebooks, `notebooks`, ntBkDlted, setNtBkDlted)}
+        {ListToDlt(notebooks, `notebooks`, ntBksDlted, setNtBksDlted)}
         </div>
         <div className = "position-absolute bottom-0 text-center w-100 px-3">
         <button 
@@ -51,12 +49,11 @@ export default function DltNtBk(props){
                 (e) => {
                     e.preventDefault();
                     history.push("/notebooks");
-                    window.localStorage.setItem('notebooks', JSON.stringify(newNoteBooks))
+                    Notebooks.saveList(newNoteBooks)
                 }
             }
             >
             Save
-            {/* <Plus /> */}
         </button>
         </div>
       

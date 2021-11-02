@@ -1,6 +1,7 @@
-import React from "react";
-import { RightChevron, LeftChevron } from "../../../../../utils/Icons/Main";
+import React, { useState } from "react";
+import { RightChevron, LeftChevron, CaretDown } from "../../../../../utils/Icons/Main";
 import CreateTopicContent from "./CreateTopicContent";
+import RightToolTip from "./tooltip/RightToolTip";
 
 export default function TopicList(props) {
     const {
@@ -13,6 +14,8 @@ export default function TopicList(props) {
         displayRightMain, 
         setDisplayRightMain, 
     } = props
+
+    const [ displayTooltip, setDisplayToolTip ] = useState(false);
 
     let ntBkSelectedLcalStorg = window.localStorage.getItem('notebookSelected');
     ntBkSelectedLcalStorg = JSON.parse(ntBkSelectedLcalStorg);
@@ -28,6 +31,7 @@ export default function TopicList(props) {
     topics = JSON.parse(topics);
     topics = (topics) ? topics : []
 
+    //There is a bug when refreshing the page. It doesnt show the correct topicList => need to fix this
     const topicsSelected = topics.filter((topic,idx) => topic.bookId === ntBkToDisplay.id && topic.chapterId === chapterToDisplay.id)
     const topicList = topicsSelected.map((topic, mapIdx) => {
         const contents = topic.content.split("\n")
@@ -49,10 +53,13 @@ export default function TopicList(props) {
     )})
     return (
         <>
-        <div className = "py-2">
-            <div className = "w-100 d-flex justify-content-between">
+        <div className = "">
+            <div className = "w-100 py-2 d-flex justify-content-between">
             <button className = "d-flex align-items-center justify-content-center plusBtn ms-1"
-                    onClick = {(e) => setDisplayLeftMain(() => !displayLeftMain)}
+                    onClick = {(e) => {
+                        setDisplayLeftMain(() => !displayLeftMain)
+                        
+                    }}
             >   
                 {
                     displayLeftMain 
@@ -60,24 +67,58 @@ export default function TopicList(props) {
                     : <RightChevron />
                 }
             </button>
-            <h3 className = "text-center">
+            <h3 className = "text-center m-0">
                 {ntBkToDisplay.title}
 
                 </h3>
-            <button className = "d-flex align-items-center justify-content-center plusBtn me-1"
-                    onClick = {(e) => setDisplayRightMain(() => !displayRightMain)}
-                    >    
+            <div className = "d-flex align-items-center py-0">
                 {
-                    displayRightMain
-                    ?  <RightChevron />
-                    :   <LeftChevron />
-                }    
-            </button>
+                    !displayRightMain && 
+                    <button className = "d-flex plusBtn align-items-center justify-content-center"
+                            onClick = {
+                                (e) => setDisplayToolTip(() => !displayTooltip)
+                            }
+                    > 
+                        <CaretDown /> 
+                    </button>
+                    
+                }
+            {
+                displayTooltip && 
+                <RightToolTip 
+                                displayTooltip = {displayTooltip}
+                                setDisplayToolTip = {setDisplayToolTip}
+                                ntBkSelected = {ntBkSelected}
+                                setNtBkSelected = {setNtBkSelected}
+                                chapSelected = {chapSelected}
+                                setChapSelected = {setChapSelected}
+                                displayLeftMain = {displayLeftMain}
+                                setDisplayLeftMain = {setDisplayLeftMain}
+                                displayRightMain = {displayRightMain}
+                                setDisplayRightMain = {setDisplayRightMain}  
+                />
+            }
+                <button className = "d-flex align-items-center justify-content-center plusBtn me-1"
+                        onClick = {(e) => {
+                            setDisplayRightMain(() => !displayRightMain)
+                            setDisplayToolTip(() => false)
+                        }}
+                        >    
+                    {
+                        displayRightMain
+                        ?  <RightChevron />
+                        :  <>
+                        <LeftChevron />
+                        </>
+                    }    
+                </button>
+            </div>
             </div>
             <hr className = "m-0"/>
             <h5 className = "text-start my-2 text-center"> 
             Chapter {chapterToDisplay.id}: {chapterToDisplay.title}  
             </h5>
+
             {topicList}
         </div>
         </>

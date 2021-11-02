@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Escape, List } from "../../../../../../utils/Icons/Main"
+import { Escape, List, LeftArrow } from "../../../../../../utils/Icons/Main"
 import { useHistory } from "react-router";
 
 export default function AddLayout(props){
@@ -19,7 +19,9 @@ export default function AddLayout(props){
         setDropdown,
         displayAddOption,
         setDisplayAddOption,
-        newTopic, setNewTopic, initTopic
+        newTopic, setNewTopic, initTopic,
+        displayContent,
+        setDisplayContent
     } = props
     const { userId = " ", bookId = "", id = " "} = chapSelected || ""
 
@@ -60,10 +62,26 @@ export default function AddLayout(props){
     console.log(newTopic);
     return (
         <>
-            
+
     <div className="row d-flex text-aligns-center m-0 justify-content-center">    
-        <div className = "col-2"></div>
-        <h5 className = "col-8 text-center m-0 py-3">Create topic</h5>
+        {
+            displayContent
+                ?   <>
+                    <div className = "col-2 m-0 ps-2 d-flex align-items-center">
+                        <button className = "d-block plusBtn d-flex align-items-center p-0 "
+                                onClick = {(e) => setDisplayContent(() => !displayContent)}
+                        >
+                            <LeftArrow />
+                        </button>
+                    </div>
+                    <h5 className = "col-8 text-center m-0 py-3">Create topic - content</h5>
+                    </>
+                :   <>
+                    <div className = "col-2"></div>
+                    <h5 className = "col-8 text-center m-0 py-3">Create topic - title</h5>
+                    </>
+        }
+       
         <div className = "col-2 m-0  d-flex align-items-center justify-content-end">
             <button className = "d-block plusBtn d-flex align-items-center p-2 "
                     onClick = {(e) => setDropdown (() => !dropdown)}
@@ -76,8 +94,10 @@ export default function AddLayout(props){
 
     <form className = ""
     onSubmit = {handleSubmit}>
-    <div>
-        <input
+    {
+    !displayContent
+    ?   <div>
+            <input
             className = "list-group-item createInput px-3 text-start w-100"
             id = "title"
             name = "title"
@@ -85,19 +105,22 @@ export default function AddLayout(props){
             value = {newTopic.title}
             onChange = {handleChange}
             >
-        </input>
-    </div>
-    <div>
-        <input
-            className = "list-group-item createInput px-3 text-start w-100"
-            id = "content"
-            name = "content"
-            placeholder = "Write a topic content"
-            value = {newTopic.content}
-            onChange = {handleChange}
-            >
-        </input>
-    </div>
+            </input>
+        </div>
+    :   <div>
+            <input
+                className = "list-group-item createInput px-3 text-start w-100"
+                id = "content"
+                name = "content"
+                placeholder = "Write a topic content"
+                value = {newTopic.content}
+                onChange = {handleChange}
+                >
+            </input>
+        </div>
+    }
+
+
 
     <div className = "position-absolute bottom-0 text-center w-100 px-3">
         <div className = "py-1 w-100 d-flex justify-content-between">
@@ -115,13 +138,26 @@ export default function AddLayout(props){
             </div>
 
         </div>
-        <button 
-            className = "save mb-3 list-group-item w-100 d-flex align-items-center justify-content-center text-center"
-            type = "submit"
-            >
-            Save
+        {
+            !displayContent 
+            ? <button 
+                className = "save mb-3 list-group-item w-100 d-flex align-items-center justify-content-center text-center"
+                onClick = {(e) => {
+                    e.preventDefault();
+                    setDisplayContent(() => true)}}
+                >
+                Add Content
             {/* <Plus /> */}
-        </button>
+            </button>
+            :         <button 
+                className = "save mb-3 list-group-item w-100 d-flex align-items-center justify-content-center text-center"
+                type = "submit"
+                >
+                Save
+                {/* <Plus /> */}
+            </button>
+        }
+
     </div>
 </form>
 </>

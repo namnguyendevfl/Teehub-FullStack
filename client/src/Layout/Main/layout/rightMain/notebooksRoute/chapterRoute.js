@@ -1,8 +1,6 @@
 import React from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
 import ChapterList from "../../../notebooks/middleMain/chapters/ChapterListMiddleMain";
-
-import TopicList from "../../../notebooks/middleMain/topics/TopicList";
 import NtBkList from "../../../notebooks/rightMain/notebooks/NtBkListRightMain";
 
 export default function ChapterRoute(props) {
@@ -33,7 +31,6 @@ export default function ChapterRoute(props) {
                     displayRightMain = {displayRightMain}
                     setDisplayRightMain = {setDisplayRightMain}         
                     />
-                    {/* <Switch> */}
                         <Route path = {`${url}/:bookId`}>
                                 <div>
                             <ChapterList 
@@ -48,36 +45,7 @@ export default function ChapterRoute(props) {
                             />
                         </div>
                         </Route>
-                    {/* </Switch> */}
             </Route>
-
-            {/* <Route exact path = {`${url}/:bookId`}>
-                <div>
-                    <ChapterList 
-                    ntBkSelected = {ntBkSelected}
-                    setNtBkSelected = {setNtBkSelected}
-                    chapSelected = {chapSelected}
-                    setChapSelected = {setChapSelected}
-                    displayLeftMain = {displayLeftMain}
-                    setDisplayLeftMain = {setDisplayLeftMain}
-                    displayRightMain = {displayRightMain}
-                    setDisplayRightMain = {setDisplayRightMain}         
-                    />
-                </div>
-            </Route>
-
-            <Route path = {`${url}/:bookId/:chapterId`}>
-                <TopicList 
-                    ntBkSelected = {ntBkSelected}
-                    setNtBkSelected = {setNtBkSelected}
-                    chapSelected = {chapSelected}
-                    setChapSelected = {setChapSelected}
-                    displayLeftMain = {displayLeftMain}
-                    setDisplayLeftMain = {setDisplayLeftMain}
-                    displayRightMain = {displayRightMain}
-                    setDisplayRightMain = {setDisplayRightMain}                      
-                />
-            </Route> */}
         </Switch>
     )
 }

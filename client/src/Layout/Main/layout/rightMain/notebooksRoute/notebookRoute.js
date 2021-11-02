@@ -6,7 +6,6 @@ import OptionBar from "./optionBar/optionBar";
 
 export default function NoteBookRoute(props) {
     const [ optionBarUrl, setOptionBarUrl ] = useState("")
-    const [ optionTarget, setOptionTarget ] = useState("");
     const {
         ntBkSelected,
         setNtBkSelected, 
@@ -18,7 +17,6 @@ export default function NoteBookRoute(props) {
         setDisplayRightMain, 
     } = props
     const { url } = useRouteMatch();
-
     //do not use exact in the parent component Route b/c the children Routes wont work
     return (
         <>
@@ -33,9 +31,8 @@ export default function NoteBookRoute(props) {
                     setDisplayRightMain = {setDisplayRightMain}  
                     optionBarUrl = {optionBarUrl}
                     setOptionBarUrl = {setOptionBarUrl}
-                    // optionTarget = {optionTarget} 
-                    // setOptionTarget = { setOptionTarget}      
         />
+        <hr className = "my-2"/>
         <Switch>
             <Route path = {`${url}`}>
                 <NtBkList 
@@ -50,7 +47,9 @@ export default function NoteBookRoute(props) {
                     optionBarUrl = {optionBarUrl}
                     setOptionBarUrl = {setOptionBarUrl}          
                 />
-                <Route path = {`${url}/:bookId`}>   
+                <Route path = {`${url}/:bookId`}>
+                    {
+                    chapSelected &&
                     <ChapterList 
                         ntBkSelected = {ntBkSelected}
                         setNtBkSelected = {setNtBkSelected}
@@ -63,9 +62,11 @@ export default function NoteBookRoute(props) {
                         optionBarUrl = {optionBarUrl}
                         setOptionBarUrl = {setOptionBarUrl}         
                     />
+                    }
                 </Route>
             </Route>
         </Switch>
+        <hr className = "my-2"/>
         </>
     )
 }

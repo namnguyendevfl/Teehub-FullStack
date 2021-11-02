@@ -3,10 +3,11 @@ import { useHistory } from "react-router";
 import React, { useState } from "react";
 
 
-export const ListToDlt = (options, indicatorToStore, optionDlt, setOptionDlt) => {
+export const ListToDlt = (options, indicatorToStore, optionsDlt, setOptionsDlt) => {
     const history = useHistory();
     // const [ optionDlt, setOptionDlt ] = useState()
-    const newOptions = (!optionDlt) ? options : options.filter((option, idx) => option.id !== optionDlt.id)
+    const optionsDltIds = (optionsDlt) ? optionsDlt.map((optionDlt, idx) => optionDlt.id) : null
+    const newOptions = (!optionsDltIds) ? options : options.filter((option, idx) => !optionsDltIds.includes(option.id))
     return newOptions.map((option,idx) => 
         <li className = "dlt me-0 py-1 pe-2 list-group-item d-flex align-items-center justify-content-between">
         <span>{option.title} </span>
@@ -17,7 +18,7 @@ export const ListToDlt = (options, indicatorToStore, optionDlt, setOptionDlt) =>
                     // window.localStorage.setItem('notebooks', JSON.stringify(newOptions))
                     // history.push("/notebooks")
                     // window.localStorage.setItem(`${indicatorToStore}`, JSON.stringify(newOptions));
-                    setOptionDlt(() => option)
+                    setOptionsDlt((prevOption) => [...prevOption,option])
                 }}
                 > 
             <Trash />  
@@ -28,9 +29,6 @@ export const ListToDlt = (options, indicatorToStore, optionDlt, setOptionDlt) =>
 }
 
 export const list = (objs, setObjSelected, setObjDropdown, objDropdown, setSubObjsSelected, subObjs) => objs.map((obj,idx) => {
-    console.log(objs);
-    console.log(subObjs);
-    
     return (
     <li 
     href="#/action-1"
@@ -109,3 +107,16 @@ export const SelectedList = (selects, ntBkSelected) => selects.map((select, idx)
         </li>
     )
 })
+
+
+export const Notebooks = {
+    getList: () => {
+        let notebooks = window.localStorage.getItem('notebooks');
+        notebooks = JSON.parse(notebooks);
+        notebooks.sort((noteA, noteB) => noteA.id - noteB.id)
+        return (notebooks) ? notebooks : [];
+    },
+    saveList: (notebooks) => {
+        return window.localStorage.setItem('notebooks', JSON.stringify(notebooks))
+    }
+}
